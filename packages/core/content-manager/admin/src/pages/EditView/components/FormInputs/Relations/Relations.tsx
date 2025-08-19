@@ -750,7 +750,9 @@ const RelationModalWithContext = ({
           })}
           onLoadMore={handleLoadMore}
           textValue={textValue}
-          onChange={handleChange}
+          onChange={(relationId) => {
+            handleChange(relationId);
+          }}
           onTextValueChange={(text) => {
             setTextValue(text);
           }}

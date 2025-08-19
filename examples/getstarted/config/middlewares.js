@@ -11,7 +11,31 @@ module.exports = [
       contentSecurityPolicy: {
         useDefaults: true,
         directives: {
-          'frame-src': ["'self'"], // URLs that will be loaded in an iframe (e.g. Content Preview)
+          'connect-src': ["'self'", 'https:'],
+          'script-src': [
+            "'self'",
+            'https://76548850.mues-ai-script.pages.dev',
+            'https://mues-ai-script.pages.dev',
+            'https://mues.ai',
+            'http://localhost:4173',
+            'http://localhost:5173',
+          ],
+          'style-src': [
+            "'self'",
+            'https://mues.ai',
+            'http://localhost:4173',
+            'http://localhost:5173',
+            "'unsafe-inline'",
+          ],
+          'img-src': [
+            "'self'",
+            'data:',
+            'https://mues.ai',
+            'https://ejzmwuipqrdcuupdxamd.supabase.co',
+            'http://localhost:4173',
+            'http://localhost:5173',
+          ],
+          upgradeInsecureRequests: null,
         },
       },
     },

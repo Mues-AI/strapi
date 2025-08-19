@@ -1,4 +1,4 @@
-import { forwardRef, memo } from 'react';
+import { forwardRef, memo, useEffect, useState } from 'react';
 
 import { SingleSelect, SingleSelectOption, useComposedRefs, Field } from '@strapi/design-system';
 import { useIntl } from 'react-intl';
@@ -16,31 +16,82 @@ const EnumerationInput = forwardRef<HTMLDivElement, EnumerationProps>(
 
     const composedRefs = useComposedRefs(ref, fieldRef);
 
+    console.log('Rendering EnumerationInput');
+
+    useEffect(() => {
+      /** @ts-ignore */
+      if (!window.MuesAgent) return;
+
+      console.log('Binding handler');
+
+      /** @ts-ignore */
+      return window.MuesAgent.signals.on('valueChangeIntent', (el: HTMLElement, value: string) => {
+        console.log('ValueChange', el);
+        field.onChange(name, value);
+        // const reactKey = Object.keys(el).find(
+        //   (key) => key.startsWith('__reactEventHandlers$') || key.startsWith('__reactProps$')
+        // );
+
+        // // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // const props: any =
+        //   reactKey != null && reactKey in el ? el[reactKey as keyof typeof el] : null;
+
+        // if (props?.onChange) {
+        //   const syntheticEvent = new Event('input', { bubbles: true });
+        //   Object.defineProperty(syntheticEvent, 'target', {
+        //     writable: false,
+        //     value: el,
+        //   });
+        //   props.onChange(syntheticEvent);
+        // } else {
+        //   el.dispatchEvent(new Event('input', { bubbles: true }));
+        //   el.dispatchEvent(new Event('change', { bubbles: true }));
+        // }
+      });
+    }, []);
+
+    // @ts-ignore
+    const [open, setOpen] = useState(props.open ?? false);
+
     return (
       <Field.Root error={field.error} name={name} hint={hint} required={required}>
         <Field.Label action={labelAction}>{label}</Field.Label>
-        <SingleSelect
-          ref={composedRefs}
-          onChange={(value) => {
-            field.onChange(name, value);
-          }}
-          value={field.value}
-          {...props}
-        >
-          <SingleSelectOption value="" disabled={required} hidden={required}>
-            {formatMessage({
-              id: 'components.InputSelect.option.placeholder',
-              defaultMessage: 'Choose here',
+        <div onClick={() => setOpen(true)}>
+          <SingleSelect
+            ref={composedRefs}
+            onChange={(value) => {
+              console.log('Change', value);
+              field.onChange(name, value);
+            }}
+            value={field.value}
+            {...props}
+            open={open}
+            onOpenChange={setOpen}
+          >
+            <SingleSelectOption value="" disabled={required} hidden={required}>
+              {formatMessage({
+                id: 'components.InputSelect.option.placeholder',
+                defaultMessage: 'Choose here',
+              })}
+            </SingleSelectOption>
+            {options.map(({ value, label, disabled, hidden }) => {
+              return (
+                <SingleSelectOption
+                  key={value}
+                  value={value}
+                  disabled={disabled}
+                  hidden={hidden}
+                  onClick={() => {
+                    field.onChange(name, value);
+                    setOpen(false);
+                  }}
+                >
+                  {label ?? value}
+                </SingleSelectOption>
+              );
             })}
-          </SingleSelectOption>
-          {options.map(({ value, label, disabled, hidden }) => {
-            return (
-              <SingleSelectOption key={value} value={value} disabled={disabled} hidden={hidden}>
-                {label ?? value}
-              </SingleSelectOption>
-            );
-          })}
-        </SingleSelect>
+          </SingleSelect>
+        </div>
         <Field.Hint />
         <Field.Error />
       </Field.Root>
