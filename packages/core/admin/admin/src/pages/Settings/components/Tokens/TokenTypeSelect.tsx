@@ -1,4 +1,4 @@
-import { SingleSelect } from '../../../../mixin/SingleSelect.mixin';
+import { SingleSelect } from '../../../../../mixin/SingleSelect.mixin';
 import { SingleSelectOption, SingleSelectProps, Field } from '@strapi/design-system';
 import { MessageDescriptor, useIntl } from 'react-intl';
 

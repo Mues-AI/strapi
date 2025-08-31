@@ -1,6 +1,6 @@
 import { forwardRef, memo, useEffect } from 'react';
 
-import { SingleSelect } from '../../mixin/SingleSelect.mixin';
+import { SingleSelect } from '../../../mixin/SingleSelect.mixin';
 import { Field, SingleSelectOption, useComposedRefs } from '@strapi/design-system';
 import { useIntl } from 'react-intl';
 

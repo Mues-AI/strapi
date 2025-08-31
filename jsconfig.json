@@ -1,20 +1,18 @@
 {
+  "extends": "tsconfig/client.json",
   "compilerOptions": {
-    "rootDir": ".",
-    "module": "commonjs",
-    "target": "es6"
+    "rootDir": "../../",
+    "baseUrl": ".",
+    "paths": {
+      "@tests/*": ["./tests/*"]
+    }
   },
-  "exclude": [
-    "**/node_modules/*",
-    ".git",
-    ".npm",
-    "**/.cache/*",
-    "**/.tmp/*",
-    "**/dist/*",
-    "**/build/*",
-    "**/*.test.js",
-    "**/*.test.api.js",
-    "**/examples/getstarted/*",
-    "**/examples/kitchensink/*"
+  "include": [
+    "../package.json",
+    "./mixins",
+    "../shared",
+    "./tests",
+    "./custom.d.ts",
+    "../../common"
   ]
 }
