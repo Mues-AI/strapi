@@ -1,4 +1,5 @@
-import { SingleSelectOption, SingleSelect, SingleSelectProps, Field } from '@strapi/design-system';
+import { SingleSelect } from '../../../../mixin/SingleSelect.mixin';
+import { SingleSelectOption, SingleSelectProps, Field } from '@strapi/design-system';
 import { MessageDescriptor, useIntl } from 'react-intl';
 
 import { isErrorMessageMessageDescriptor } from '../../utils/forms';

@@ -1,4 +1,5 @@
-import { SingleSelectOption, SingleSelect, Typography, Field } from '@strapi/design-system';
+import { SingleSelect } from '../../../../mixin/SingleSelect.mixin';
+import { SingleSelectOption, Typography, Field } from '@strapi/design-system';
 import { MessageDescriptor, useIntl } from 'react-intl';
 
 import { getDateOfExpiration } from '../../pages/ApiTokens/EditView/utils/getDateOfExpiration';

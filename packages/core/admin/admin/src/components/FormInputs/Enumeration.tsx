@@ -1,6 +1,7 @@
-import { forwardRef, memo, useEffect, useState } from 'react';
+import { forwardRef, memo, useEffect } from 'react';
 
-import { SingleSelect, SingleSelectOption, useComposedRefs, Field } from '@strapi/design-system';
+import { SingleSelect } from '../../mixin/SingleSelect.mixin';
+import { Field, SingleSelectOption, useComposedRefs } from '@strapi/design-system';
 import { useIntl } from 'react-intl';
 
 import { useFocusInputField } from '../../hooks/useFocusInputField';
@@ -45,47 +46,32 @@ const EnumerationInput = forwardRef<HTMLDivElement, EnumerationProps>(
       });
     }, []);
 
-    // @ts-ignore
-    const [open, setOpen] = useState(props.open ?? false);
-
     return (
       <Field.Root error={field.error} name={name} hint={hint} required={required}>
         <Field.Label action={labelAction}>{label}</Field.Label>
-        <div onClick={() => setOpen(true)}>
-          <SingleSelect
-            ref={composedRefs}
-            onChange={(value) => {
-              field.onChange(name, value);
-            }}
-            value={field.value}
-            {...props}
-            open={open}
-            onOpenChange={setOpen}
-          >
-            <SingleSelectOption value="" disabled={required} hidden={required}>
-              {formatMessage({
-                id: 'components.InputSelect.option.placeholder',
-                defaultMessage: 'Choose here',
-              })}
-            </SingleSelectOption>
-            {options.map(({ value, label, disabled, hidden }) => {
-              return (
-                <SingleSelectOption
-                  key={value}
-                  value={value}
-                  disabled={disabled}
-                  hidden={hidden}
-                  onClick={() => {
-                    field.onChange(name, value);
-                    setOpen(false);
-                  }}
-                >
-                  {label ?? value}
-                </SingleSelectOption>
-              );
+        <SingleSelect
+          ref={composedRefs}
+          onChange={(value) => {
+            console.log('Change', value);
+            field.onChange(name, value);
+          }}
+          value={field.value}
+          {...props}
+        >
+          <SingleSelectOption value="" disabled={required} hidden={required}>
+            {formatMessage({
+              id: 'components.InputSelect.option.placeholder',
+              defaultMessage: 'Choose here',
             })}
-          </SingleSelect>
-        </div>
+          </SingleSelectOption>
+          {options.map(({ value, label, disabled, hidden }) => {
+            return (
+              <SingleSelectOption key={value} value={value} disabled={disabled} hidden={hidden}>
+                {label ?? value}
+              </SingleSelectOption>
+            );
+          })}
+        </SingleSelect>
         <Field.Hint />
         <Field.Error />
       </Field.Root>
