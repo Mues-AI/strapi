@@ -32,6 +32,8 @@ import type { InputProps } from '../Form';
  */
 const InputRenderer = memo(
   forwardRef<any, InputProps>((props, forwardRef) => {
+    console.log('Rendering', props.type);
+
     switch (props.type) {
       case 'biginteger':
       case 'timestamp':

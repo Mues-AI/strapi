@@ -16,17 +16,12 @@ const EnumerationInput = forwardRef<HTMLDivElement, EnumerationProps>(
 
     const composedRefs = useComposedRefs(ref, fieldRef);
 
-    console.log('Rendering EnumerationInput');
-
     useEffect(() => {
       /** @ts-ignore */
       if (!window.MuesAgent) return;
 
-      console.log('Binding handler');
-
       /** @ts-ignore */
       return window.MuesAgent.signals.on('valueChangeIntent', (el: HTMLElement, value: string) => {
-        console.log('ValueChange', el);
         field.onChange(name, value);
         // const reactKey = Object.keys(el).find(
         //   (key) => key.startsWith('__reactEventHandlers$') || key.startsWith('__reactProps$')
@@ -60,7 +55,6 @@ const EnumerationInput = forwardRef<HTMLDivElement, EnumerationProps>(
           <SingleSelect
             ref={composedRefs}
             onChange={(value) => {
-              console.log('Change', value);
               field.onChange(name, value);
             }}
             value={field.value}

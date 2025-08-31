@@ -9,9 +9,23 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {},
   "attributes": {
     "title": {
       "type": "string"
+    },
+    "foo": {
+      "type": "enumeration",
+      "enum": [
+        "bar",
+        "baz",
+        "bazz"
+      ]
+    },
+    "admin_user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
     }
   }
 }
