@@ -69,6 +69,7 @@
     "@strapi/design-system": "2.0.0-rc.29",
     "@strapi/generators": "5.22.0",
     "@strapi/icons": "2.0.0-rc.29",
+    "@strapi/mixins": "workspace:*",
     "@strapi/utils": "5.22.0",
     "date-fns": "2.30.0",
     "fs-extra": "11.2.0",

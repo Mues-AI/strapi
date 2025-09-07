@@ -1,4 +1,5 @@
-import { Field, SingleSelect, SingleSelectOption } from '@strapi/design-system';
+import { Field, SingleSelectOption } from '@strapi/design-system';
+import { SingleSelect } from '@strapi/mixins';
 import { PrimitiveType, useIntl } from 'react-intl';
 
 type SelectDateTypeProps = {

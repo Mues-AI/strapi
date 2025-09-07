@@ -1,4 +1,5 @@
-import { Box, Flex, SingleSelectOption, SingleSelect, Typography } from '@strapi/design-system';
+import { Box, Flex, SingleSelectOption, Typography } from '@strapi/design-system';
+import { SingleSelect } from '@strapi/mixins';
 import { useIntl } from 'react-intl';
 
 interface PageSizeProps {

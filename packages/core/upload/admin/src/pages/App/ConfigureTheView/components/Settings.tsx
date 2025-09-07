@@ -1,4 +1,5 @@
-import { Box, Grid, SingleSelectOption, SingleSelect, Field } from '@strapi/design-system';
+import { Box, Grid, SingleSelectOption, Field } from '@strapi/design-system';
+import { SingleSelect } from '@strapi/mixins';
 import { useIntl } from 'react-intl';
 
 import { pageSizes, sortOptions } from '../../../../constants';

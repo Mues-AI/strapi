@@ -1,5 +1,6 @@
 // TODO: find a better naming convention for the file that was an index file before
-import { SingleSelect, SingleSelectOption } from '@strapi/design-system';
+import { SingleSelectOption } from '@strapi/design-system';
+import { SingleSelect } from '@strapi/mixins';
 import { useIntl } from 'react-intl';
 
 import { sortOptions } from '../../constants';

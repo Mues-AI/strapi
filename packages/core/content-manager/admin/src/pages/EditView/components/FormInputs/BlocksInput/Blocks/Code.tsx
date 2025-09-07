@@ -1,11 +1,12 @@
 import * as React from 'react';
 
-import { Box, SingleSelect, SingleSelectOption } from '@strapi/design-system';
+import { Box, SingleSelectOption } from '@strapi/design-system';
 import { CodeBlock as CodeBlockIcon } from '@strapi/icons';
+import { SingleSelect } from '@strapi/mixins';
 import * as Prism from 'prismjs';
 import { useIntl } from 'react-intl';
-import { BaseRange, Element, Editor, Node, NodeEntry, Transforms } from 'slate';
-import { useSelected, type RenderElementProps, useFocused, ReactEditor } from 'slate-react';
+import { BaseRange, Editor, Element, Node, NodeEntry, Transforms } from 'slate';
+import { ReactEditor, useFocused, useSelected, type RenderElementProps } from 'slate-react';
 import { styled } from 'styled-components';
 
 import { useBlocksEditorContext, type BlocksStore } from '../BlocksEditor';
@@ -14,7 +15,6 @@ import { baseHandleConvert } from '../utils/conversions';
 import { pressEnterTwiceToExit } from '../utils/enterKey';
 import { type Block } from '../utils/types';
 
-import 'prismjs/themes/prism-solarizedlight.css';
 import 'prismjs/components/prism-asmatmel';
 import 'prismjs/components/prism-bash';
 import 'prismjs/components/prism-basic';
@@ -37,15 +37,15 @@ import 'prismjs/components/prism-haxe';
 import 'prismjs/components/prism-ini';
 import 'prismjs/components/prism-java';
 import 'prismjs/components/prism-javascript';
-import 'prismjs/components/prism-jsx';
 import 'prismjs/components/prism-json';
+import 'prismjs/components/prism-jsx';
 import 'prismjs/components/prism-julia';
 import 'prismjs/components/prism-kotlin';
 import 'prismjs/components/prism-latex';
 import 'prismjs/components/prism-lua';
+import 'prismjs/components/prism-makefile';
 import 'prismjs/components/prism-markdown';
 import 'prismjs/components/prism-matlab';
-import 'prismjs/components/prism-makefile';
 import 'prismjs/components/prism-objectivec';
 import 'prismjs/components/prism-perl';
 import 'prismjs/components/prism-php';
@@ -60,10 +60,11 @@ import 'prismjs/components/prism-scheme';
 import 'prismjs/components/prism-sql';
 import 'prismjs/components/prism-stata';
 import 'prismjs/components/prism-swift';
-import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-tsx';
+import 'prismjs/components/prism-typescript';
 import 'prismjs/components/prism-vbnet';
 import 'prismjs/components/prism-yaml';
+import 'prismjs/themes/prism-solarizedlight.css';
 
 type BaseRangeCustom = BaseRange & { className: string };
 

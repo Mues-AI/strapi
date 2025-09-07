@@ -1,6 +1,7 @@
 import { forwardRef, memo } from 'react';
 
-import { SingleSelect, SingleSelectOption, useComposedRefs, Field } from '@strapi/design-system';
+import { SingleSelectOption, useComposedRefs, Field } from '@strapi/design-system';
+import { SingleSelect } from '@strapi/mixins';
 import { useIntl } from 'react-intl';
 
 import { useFocusInputField } from '../../hooks/useFocusInputField';

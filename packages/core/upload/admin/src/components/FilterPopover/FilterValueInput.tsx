@@ -1,4 +1,5 @@
-import { DateTimePicker, SingleSelectOption, SingleSelect } from '@strapi/design-system';
+import { DateTimePicker, SingleSelectOption } from '@strapi/design-system';
+import { SingleSelect } from '@strapi/mixins';
 import { useIntl } from 'react-intl';
 
 interface FilterValueInputProps {

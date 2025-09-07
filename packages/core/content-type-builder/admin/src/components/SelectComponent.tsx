@@ -1,4 +1,5 @@
-import { SingleSelectOption, SingleSelect, Field } from '@strapi/design-system';
+import { SingleSelectOption, Field } from '@strapi/design-system';
+import { SingleSelect } from '@strapi/mixins';
 import { useIntl } from 'react-intl';
 
 import { MAX_COMPONENT_DEPTH } from '../constants';
