@@ -2,8 +2,9 @@
 import * as React from 'react';
 
 import { Page, useNotification, useFetchClient, Layouts } from '@strapi/admin/strapi-admin';
-import { Box, Button, Flex, Grid, Toggle, Typography, Field } from '@strapi/design-system';
+import { Box, Button, Flex, Grid, Typography, Field } from '@strapi/design-system';
 import { Check } from '@strapi/icons';
+import { Toggle } from '@strapi/mixins';
 import isEqual from 'lodash/isEqual';
 import { useIntl } from 'react-intl';
 import { useMutation, useQuery } from 'react-query';

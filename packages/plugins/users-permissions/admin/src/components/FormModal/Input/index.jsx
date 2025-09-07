@@ -6,7 +6,8 @@
 
 import * as React from 'react';
 
-import { TextInput, Toggle, Field } from '@strapi/design-system';
+import { TextInput, Field } from '@strapi/design-system';
+import { Toggle } from "@strapi/mixins";
 import PropTypes from 'prop-types';
 import { useIntl } from 'react-intl';
 

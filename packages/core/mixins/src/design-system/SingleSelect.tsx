@@ -15,7 +15,7 @@ export const SingleSelect = forwardRef<
   ComponentRef<typeof SingleSelectOriginal>,
   ComponentProps<typeof SingleSelectOriginal>
 >((props, ref) => {
-  console.log('Rendering <SingleSelect />');
+  console.debug('Rendering <SingleSelect />');
 
   const [open, setOpen] = useState(props.open ?? false);
 
