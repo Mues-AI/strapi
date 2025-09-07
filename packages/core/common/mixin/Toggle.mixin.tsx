@@ -42,6 +42,8 @@ export const Toggle = React.forwardRef<ToggleInputElement, ToggleProps>(
     },
     forwardedRef
   ) => {
+    console.debug('Rendering <Toggle/>');
+
     const [checked = false, setChecked] = useControllableState<boolean | null>({
       prop: checkedProp,
     });
